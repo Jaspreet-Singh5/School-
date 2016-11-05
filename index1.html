@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/styles.css" rel="stylesheet">
+	  <script>
+	function loop_1()
+	{
+	  var sum_1=0;
+	  var sum_2=0;
+	  var sum_3=0;
+	  var avg_1=0;
+	  var avg_2=0;
+	  var avg_3=0;
+	  var n=parseInt(prompt("Enter the no. of numbers"));
+	  for(i=0;i<=n;i++)
+	 {
+	 if(i%2==0)
+	 {
+	 sum_1+=i;
+	 avg_1=sum_1/n;
+	 }
+	 else if(i!=0)
+	 {
+	 sum_2+=i;
+	 avg_2=sum_2/n;
+	 }
+	 
+	 
+	 
+	 
+	 
+	}
+	sum_3+=sum_1+sum_2;
+	 avg_3=sum_3/n;
+
+	 document.write("Sum of"+" "+ n+" "+"odd numbers is:"+" "+sum_2+"<br>"+"Average of"+" "+n+"odd numbers is:"+avg_2+"<br>");
+	document.write("Sum of"+" "+ n+" "+"even numbers is:"+" "+sum_1+"<br>"+"Average of"+" "+n+"even numbers is:"+avg_1+"<br>");
+    document.write("Sum of"+" "+ n+" "+"natural numbers is:"+" "+sum_3+"<br>"+"Average of"+" "+n+"natural numbers is:"+avg_3+"<br>");
+ 
+	  }
+	  </script>
+  </head>
+  <body onload="loop_1()">
+
+   
+
+  </body>
+</html>		
