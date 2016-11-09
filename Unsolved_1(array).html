@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>
+		Array	
+		</title>
+		<script>
+		function array_1()
+		{
+			var a=0;
+			var a=parseInt(prompt("How many numbers do you want to enter?"));
+			var array_1=Array(a);
+		    document.write("Array Entered is: ");
+				for(count=0;count<a;count++)
+					{
+						array_1[count]= parseInt(prompt("Enter the"+(count+1)+"st number"));
+						if(count<(a-1))
+						{
+						document.write(array_1[count]+",");
+						}
+						else
+						{
+						document.write(array_1[count]+"");
+						}
+					}
+			document.write("<br>New array: ");
+				for(i=0;i<a;i++)
+				{
+					result=array_1[i]*5;
+					if(i<(a-1))
+						{
+						document.write(result+",");
+						}
+						else
+						{
+						document.write(result+"");
+						}
+					
+				}
+		}
+		</script>
+	</head>
+	<body onload="array_1()">
+	</body>
+</html>
