@@ -3,17 +3,32 @@
   <head>
     <link href="css/styles.css" rel="stylesheet">
     <script>
-	  function array()
-	    {
-		 var arr=["A","B","C"];
-		for(i=0;i<25;i++)
-		 {
-		 document.write(arr[i]+" ");
-		 }
-		}
+	  function player()
+	      {
+		      this.name=prompt("Enter player's name");
+			  this.hits=prompt("Enter no. of hits");
+			  this.strikeouts=prompt("Enter no. of strikeouts");
+			  this.atbats=prompt("Enter no. of at bats");
+			  this.homeruns=prompt("Enter no. of home runs");
+			 
+		  }
+	   
+	   player_1=new player();
+	   name=player_1.name;
+	   hits=player_1.hits;
+	   strikeouts=player_1.strikeouts;
+	   atbats=player_1.atbats;
+	   homeruns=player_1.homeruns;
+	   document.write("Player's name:"+name+"<br>"+
+	                  "Total no. of hits:"+hits+"<br>"+
+					  "Total no. of strikeouts:"+strikeouts+"<br>"+
+					  "Total no. of at bats:"+atbats+"<br>"+
+					  "Total no. of homeruns:"+homeruns
+					  );
+	                    
 	</script>
-	  </head>
-  <body onload="array()">
+ </head>
+  <body>
 
   </body>
 </html>		
