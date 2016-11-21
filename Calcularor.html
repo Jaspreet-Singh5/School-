@@ -1,0 +1,233 @@
+
+<!-- saved from url=(0088)file:///C:/Documents%20and%20Settings/user7.NEW/My%20Documents/Downloads/Calculator.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>
+Calcularor
+</title>
+<script type="text/javascript">
+function name1()
+{
+ var name2=prompt("Enter Your Name");
+ if(name2==null)
+	frm.txt4.value="\t Hi! Friend";
+else
+	frm.txt4.value="\t Hi!"+" "+name2;
+ }
+function sum()
+{
+ frm.txt3.value=parseInt(frm.txt1.value)+parseInt(frm.txt2.value); 
+ }
+function sub()
+{
+ frm.txt3.value=parseInt(frm.txt1.value)-parseInt(frm.txt2.value); 
+ }
+function multi()
+{
+ frm.txt3.value=parseInt(frm.txt1.value)*parseInt(frm.txt2.value); 
+ } 
+function div()
+{
+ frm.txt3.value=parseInt(frm.txt1.value)/parseInt(frm.txt2.value); 
+ }
+function modulus()
+{
+ frm.txt3.value=parseInt(frm.txt1.value)%parseInt(frm.txt2.value); 
+ }
+function salary()
+{
+var salary1=prompt("Enter your Salary of one day");
+frm.txt3.value=salary1*30;
+}
+function voting1()
+{
+var voting2=prompt("Enter your age");
+var e="Eligible";
+var ne="Not-Eligible";
+frm.txt3.value=(voting2>18?e:ne);
+}
+function eval1()
+{
+frm.txt3.value=eval(prompt("Enter The function"));
+}
+function custom1()
+{
+var number1=alert("This Function is not ready");
+}
+function grade1()
+{
+	var marks1=parseInt(prompt("Enter Your Marks"));
+	if((marks1>=90)&&(marks1<100))
+	{
+		frm.txt3.value="A";
+	}
+	else if((marks1>=80)&&(marks1<90))
+	{
+		frm.txt3.value="B";
+	}
+	else if((marks1>=70)&&(marks1<80))
+	{
+		frm.txt3.value="C";
+	}
+	else if((marks1>=60)&&(marks1<70))
+	{
+		frm.txt3.value="D";
+	}
+	else if((marks1>=50)&&(marks1<60))
+	{
+		frm.txt3.value="E";
+	}
+	else if((marks1>=40)&&(marks1<50))
+	{
+		frm.txt3.value="F";
+	}
+	else 
+	{
+		frm.txt3.value="FAIL!";
+	}
+}
+</script>
+</head>
+<body bgcolor="#E9967A"
+      onload="name1()">
+<h1 style="color:#CD5C5C">
+<center>
+<u>
+Calculator
+</u>
+</center>
+</h1>
+<form name="frm">
+<center>
+<table border="1">
+<tbody>
+<tr>
+<td colspan="2">
+<center>
+<input type="text" 
+       name="txt4"
+       value="Hi! friend"	   
+	   readonly>
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<b>Enter First Value</b>
+</td>
+<td>
+<input type="text" 
+       name="txt1" 
+	   size="8%">
+</td>
+</tr>
+<tr>
+<td>
+<b>Enter second Value</b>
+</td>
+<td>
+<input type="text" 
+       name="txt2" 
+	   size="8%">
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type="button" 
+       value="+" 
+	   onclick="sum()">
+</center>
+</td>
+<td>
+<center>
+<input type="button" 
+	   value="-" 
+	   onclick="sub()">
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type="button" 
+	   value="*"  
+	   onclick="multi()">
+</center></td>
+<td>
+<center>
+<input type="button" 
+       value="/" 
+	   onclick="div()">
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type="button" 
+       value="%" 
+	   onclick="modulus()">
+</center>
+<td>
+<center>	
+<input type="button" 
+       value="Salary" 
+	   onclick="salary()">
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type="button" 
+       value="Voting" 
+	   onclick="voting1()">
+</center>
+</td>
+<td>
+<center>
+<input type="button" 
+       value="Customized"
+	   onclick="custom1()">
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type="button"
+       value="Evaluate"
+	   onclick="eval1()">
+</center>
+</td>
+<td>
+<center>
+<input type="button"
+       value="Grade"
+	   onclick="grade1()">
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<b>Result</b>
+</td>
+<td>
+<input type="text" 
+       name="txt3" 
+	   size="8%" 
+	   readonly>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<center>
+<input type="button" 
+       value="Reset" 
+	   >
+</center>
+</tbody>
+</table>
+</form>
+</body>
+</html>

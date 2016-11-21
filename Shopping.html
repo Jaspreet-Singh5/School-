@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>
+			Shopping
+		</title>
+		<script>
+			function multi()
+			{
+				var opt=frm.products.value;
+				if(opt=="Shirt_1")
+				{
+					var num_1=parseInt(frm.txt1.value);
+					var amount_1=num_1*500;
+					frm.txt2.value="Rs." + " " + amount_1;
+				}
+				else if(opt=="Shirt_2")
+				{
+					var num_1=parseInt(frm.txt1.value);
+					var amount_1=num_1*700;
+					frm.txt2.value="Rs." + " " + amount_1;
+				}
+				else if(opt=="Pent_1")
+				{
+					var num_1=parseInt(frm.txt1.value);
+					var amount_1=num_1*500;
+					frm.txt2.value="Rs." + " " + amount_1;
+				}
+				else
+				{
+					var num_1=parseInt(frm.txt1.value);
+					var amount_1=num_1*700;
+					frm.txt2.value="Rs." + " " + amount_1;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="frm">
+			<table align="center"
+				   border="2">
+						<tr>
+							<td>Select The Desired Product
+							<td><select name="products">
+									<option value="Shirt_1">Shirt(Rs.500)
+									<option value="Shirt_2">Shirt(Rs.700)
+									<option value="Pent_1">Pent(Rs.500)
+									<option value="Pent_2">Pent(Rs.700)
+								</select>
+						</tr>
+						<tr>
+							<td>Enter the quantity(in numbers)
+							<td><input type="text"
+									   name="txt1">
+						</tr>
+						<tr>
+							<td colspan="2"
+								align="center"><input type="BUTTON"
+													  value="Calculate"
+													  onclick="multi()">
+						</tr>
+						<tr>
+							<td>Amount to be paid
+							<td><input type="text"
+									   name="txt2"
+									   Readonly>
+						</tr>
+			</table>
+		</FORM>
+	</BODY>
+</HTML>	
+					           
