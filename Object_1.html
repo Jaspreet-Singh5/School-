@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <link href="css/styles.css" rel="stylesheet">
+    
+ </head>
+  <body>
+<pre>
+	<script>
+	  function player()
+	      {
+		      this.name=prompt("Enter Player "+(i+1)+"'s name");
+			  this.hits=prompt("Enter no. of hits");
+			  this.strikeouts=prompt("Enter no. of strikeouts");
+			  this.atbats=prompt("Enter no. of at bats");
+			  this.homeruns=prompt("Enter no. of home runs");
+			  this.average=averages;
+		  }
+	   function averages()
+	   {
+	     players[i].average=parseInt(hits)/parseInt(atbats);
+		 return players[i].average;
+	   }
+	   var val=parseInt(prompt("Enter the no. of players"));
+	   var players=Array(val);
+	   for(i=0;i<val;i++)
+		{
+			players[i]=new player();
+			name=players[i].name;
+			hits=players[i].hits;
+			strikeouts=players[i].strikeouts;
+			atbats=players[i].atbats;
+			homeruns=players[i].homeruns;
+			document.writeln("Name of player "+(i+1)+" is:"+name+"<br>"+
+	                  "Total no. of hits:"+hits+"<br>"+
+					  "Total no. of strikeouts:"+strikeouts+"<br>"+
+					  "Total no. of at bats:"+atbats+"<br>"+
+					  "Total no. of homeruns:"+homeruns+"<br>"+
+					  "Average:"+averages()+"<br>"
+					  );
+					  
+
+
+	    }                
+	</script>
+	</pre>
+  </body>
+</html>		

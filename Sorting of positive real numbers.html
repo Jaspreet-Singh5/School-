@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>
+			Sorting of positive real numbers
+		</title>
+		<script>
+			function array_1()
+				{
+					var n=0;
+					var x=1;
+					var N=0;
+					var array_2=Array();
+					document.write("Entered values are:");
+					while((x!=0)&&(n<100))
+						{
+							x=parseInt(prompt("Enter no.:"+(n+1)+" value"));
+							array_2[n]=x;
+							N+=1;
+							document.write(array_2[n]+" ");
+							n++;
+						}
+					var i,j,temp;
+					for(i=0;i<N;i++)
+					{
+						for(j=0;j<N-1;j++)
+						{
+							if(array_2[j]>array_2[j+1])
+							{
+								temp=array_2[j];
+								array_2[j]=array_2[j+1];
+								array_2[j+1]=temp;
+							}
+						}
+					}
+					document.write("<br>");
+					document.write("Sorted values are:");
+					for(i=1;i<N;i++)
+					{
+						document.write(array_2[i]+" ");
+					}
+				}
+		</script>
+	<body onload="array_1()">
+	</body>
+</HTML>

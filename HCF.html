@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>
+		HCF	
+		</title>
+		<script>
+		function hcf_1()
+		{
+			var a=parseInt(prompt("Enter the first no."));
+			var b=parseInt(prompt("Enter the second no."));
+			while(Math.max(a,b)%Math.min(a,b)!=0)
+			{
+				if(a>b)
+				{
+				a%=b;
+				}
+				else
+				{
+				b%=a;
+				}
+			}
+			alert(Math.max(a,b));
+			
+		}
+		</script>
+	</head>
+	<body onload="hcf_1()">
+	</body>
+</html>
