@@ -1,0 +1,83 @@
+	<html>
+<head>
+	<title>
+		Electricity Bill
+	</title>
+		
+	<script>
+		function bill()
+			{
+				var range=frm1.opt.value;
+				var unit=parseInt(frm.txt1.value);
+			
+				if(range="0-100")
+					{
+						result=unit*2;
+						alert("Your bill is Rs."+result);
+					}
+				else if(range="101-200")
+					{
+						result=200+(unit-100);
+						alert("Your bill is Rs."+result);
+					}
+				else if(range="201-300")
+					{
+						result=300+0.75*unit;
+						alert("Your bill is Rs."+result);
+					}
+				else if(range=">300")
+					{
+						result=400+0.50*unit;
+						alert("Your bill is Rs."+result);
+					}
+				
+			}
+	</script>
+</head>
+
+<body>
+	<form name="frm">
+		<table>
+			<tr>
+				<td>
+					Enter the amount of units consumed
+				
+				<td>
+					<input type="text"
+						   name="txt1">
+			</tr>
+		</table>
+	</form>
+	
+	<form name="frm1">
+		<table>
+			<tr>
+				<td>
+					Select the range of units consumed
+				</td>
+				
+				<td>
+					<input type="radio"
+						   name="opt"
+						   value="0-100"
+						   onClick="bill()">0-100
+				<td>	
+					<input type="radio"
+						   name="opt"
+						   value="101-200"
+						   onClick="bill()">101-200
+				<td>
+					<input type="radio"
+						   name="opt"
+						   value="201-300"
+						   onclick="bill()">201-300
+				<td>
+					<input type="radio"
+						   name="opt"
+						   value="300"
+						   onclick="bill()">>300
+			</tr>
+		</table>
+	</form>
+</body>
+	</html>
