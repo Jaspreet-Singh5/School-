@@ -42,16 +42,29 @@
     <?php
         function enroll()
         {
-        	if(isset($_POST["txt1"]))
+			if(isset($_POST["txt1"]))
             {
             	$file1=fopen("Record.txt","a+");
-            	$Record=$_POST["txt1"]." ".
-            	        $_POST["txt2"]." ".
-            	        $_POST["txt3"]." ".
-            	        $_POST["state"];
-            	fwrite($file1,$Record."\r\n");
-            	echo  $Record."successfully written";
+				$Record=$_POST["txt1"]." ".
+						$_POST["txt2"]." ".
+						$_POST["txt3"]." ".
+						$_POST["state"];
+						
+				while(!feof($file1))
+				{
+					$studentline=fgets($file1);
+					if($studentline!="")
+					{
+						if($studentline==$Record)
+						{
+							echo "You are already enrolled"; 
+						}
+					}
+				}
+				fwrite($file1,$Record."\r\n");
+            	echo  $Record." "."successfully written";
                 fclose($file1);
+				
             }
         }
         
