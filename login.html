@@ -1,0 +1,254 @@
+  <!DOCTYPE html>
+  <html>
+<head>
+   
+    <title>Get started</title>
+   
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
+   
+    <link rel="stylesheet" 
+          href="https://www.w3schools.com/w3css/4/w3.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    
+    <link href="1.css"
+          rel="stylesheet"
+          type="text/css">
+    
+</head>
+
+<body>
+    <!-- teacher's community -->
+    <section class="w3-container w3-center w3-content"
+             style="max-width:600px;
+                    background-color:black;
+                    color:white;">
+    
+    <h2 class="w3-wide">Teacher's Community</h2>
+   
+    <p class="w3-opacity"><i>For Those Who Shape Us</i></p>
+  
+    <p class="w3-justify">We have created a fully free to join community particularly for teachers in order to 
+                          allow the exchange of ideas, suggestions, eduction-based material
+                          and improvement & devlopement of education system along with 
+                          the developement of teachers indvidually. 
+                          <br/>We will be always ready to help you and hope 
+                          that you will find it useful.</p>
+     
+</section>
+    <section class="start">
+      
+        <button onclick="document.getElementById('id01').style.display='block'" 
+                style="width:auto;
+                       margin-left:20%">Sign Up
+        </button>
+        
+       
+            <div id="id01" 
+                 class="modal">
+                
+                <span onclick="document.getElementById('id01').style.display='none'" 
+                      class="close" 
+                      title="Close Modal">&times;
+                </span>
+  
+                <form class="modal-content animate" 
+                      action="/action_page.php"
+                      method="post"
+                      name="frm1">
+                    
+                    <div class="container">
+                        
+                        <label><b>Email</b></label>
+                        <input type="email"
+                               placeholder="Enter Email" 
+                               name="email1" 
+                               required>
+
+                        <label><b>Password</b></label>
+                        <input type="password" 
+                               placeholder="Enter Password" 
+                               name="psw" 
+                               required>
+
+                        <label><b>Repeat Password</b></label>
+                        <input type="password" 
+                               placeholder="Repeat Password" 
+                               name="psw-repeat" 
+                               required>
+                       
+                        <input type="checkbox"
+                               checked="checked"
+                               name="cokkie1">Remember me
+                        
+                        <br/>
+                        
+                        <input type="radio"
+                               checked
+                               name="category">Teacher
+                         <input type="radio"
+                               checked
+                               name="category">Developer
+      
+                        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                        <div class="clearfix">
+                           
+                            <button type="button" 
+                                    onclick="document.getElementById('id01').style.display='none'" 
+                                    class="cancelbtn1">Cancel
+                            </button>
+                 
+                            <button type="submit" 
+                                    class="signupbtn">Sign Up
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <script>
+                        
+                        // Get the modal
+                        var modal = document.getElementById('id01');
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) 
+                        {
+                            if (event.target == modal)
+                            {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
+                </form>
+            </div>
+            
+            OR
+            
+            <button onclick="document.getElementById('id02').style.display='block'" 
+                    style="width:auto;">Login
+            </button>
+
+                <div id="id02" 
+                     class="modal">
+  
+                    <form class="modal-content animate" 
+                          action="/action_page.php"
+                          method="post"
+                          name="frm2">
+                        
+                        <div class="imgcontainer">
+                            
+                            <span onclick="document.getElementById('id02').style.display='none'" 
+                                  class="close" 
+                                  title="Close Modal">&times;
+                             </span>
+                             
+                             <img src="img_avatar2.png" 
+                                  alt="Avatar" 
+                                  class="avatar">
+                        </div>
+
+                        <div class="container">
+                            
+                            <label><b>Username</b></label>
+                            <input type="email" 
+                                   placeholder="Enter Username" 
+                                   name="uname" 
+                                   required>
+
+                            <label><b>Password</b></label>
+                            <input type="password" 
+                                   placeholder="Enter Password" 
+                                   name="psw" 
+                                   required>
+        
+                            <button type="submit">Login
+                            </button>
+                           
+                            <input type="checkbox" 
+                                   checked
+                                   name="cookie1"> Remember me
+                           
+                            <br/>
+                            
+                            <input type="radio"
+                                   checked
+                                   name="category">Teacher
+                            <input type="radio"
+                                   checked
+                                   name="category">Developer
+                        </div>
+
+                        <div class="container" 
+                             style="background-color:#f1f1f1">
+                            
+                            <button type="button" 
+                                    onclick="document.getElementById('id02').style.display='none'" 
+                                    class="cancelbtn2">Cancel
+                            </button>
+                        
+                            <span class="psw">Forgot <a href="#">password?</a>
+                           </span>
+                       </div>
+                       
+                       <script>
+                        
+                           // Get the modal
+                           var modal = document.getElementById('id02');
+
+                           // When the user clicks anywhere outside of the modal, close it
+                           window.onclick = function(event) 
+                           {
+                               if (event.target == modal)
+                               {
+                                   modal.style.display = "none";
+                               }
+                           }
+                    </script>
+                       
+                  </form>
+              </div>
+        </table>
+    </section>
+    
+     <!-- developer's community -->
+    <section class="w3-container w3-center w3-content"
+             style="max-width:600px;
+                    background-color:black;
+                    color:white;">
+    
+        <h2 class="w3-wide">Developer's Community</h2>
+   
+        <p class="w3-opacity"><i>For Those Who Make Imagination-Reality</i></p>
+  
+        <p class="w3-justify">We have created a fully free to join community particularly for developers in order to 
+                          allow the exchange of files, projects, codes
+                          and allowance for team-work along with 
+                          the lifetime & unlimited storage of files. 
+                          <br/>We will be always ready to help you and hope 
+                          that you will find it useful.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+       
+       <a href="#"><i class="fa fa-facebook-official"></i></a>
+  
+       <a href="#"><i class="fa fa-pinterest-p"></i></a>
+  
+       <a href="#"><i class="fa fa-twitter"></i></a>
+  
+       <a href="#"><i class="fa fa-flickr"></i></a>
+  
+       <a href="#"><i class="fa fa-linkedin"></i></a>
+  
+       <p class="w3-medium">Powered by <a href="#">SDMS</a>
+       </p>
+   </footer>
+</body>
+  </html>
+    
+    
