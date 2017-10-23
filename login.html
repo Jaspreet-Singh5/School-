@@ -20,61 +20,151 @@
 	
 	<link rel="stylesheet" 
 		  href="https://fonts.googleapis.com/css?family=Lato">
-    
-	<style>
-		body{font-family: "Lato", sans-serif}
-		.mySlides {display: none}
-	</style>
+
+	<script>
+		// Used to toggle the menu on small screens when clicking on the menu button
+		function myFunction() 
+		{
+			var x = document.getElementById("navDemo");
+			if (x.className.indexOf("w3-show") == -1) 
+			{
+				x.className += " w3-show";
+			}	 
+		
+			else 
+			{ 
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
+	</script>
 
 </head>
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-</style>
+	
 <body>
 
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card-2">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small"></a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small"></a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class=" w3-button w3-padding-large" title="More" style="margin-top:0%;">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4" style="margin-top:-0.7%;">
-        <a href="#" class="w3-bar-item w3-button"></a>
-        <a href="#" class="w3-bar-item w3-button"></a>
-        <a href="#" class="w3-bar-item w3-button"></a>
-      </div>
-    </div>
-    <a href="javascript:void(0)" class=" w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-  </div>
-</div>
-
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large"></a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large"></a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
-</div>
-
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
-	<!-- teacher's community -->
-    <section class="w3-container w3-center"
-             style="max-width:auto;
-                    background-color:black;
-                    color:white;">
+	<!-- Navbar -->
+		<div class="w3-top">
+			
+			<div class="w3-bar 
+						w3-black 
+						w3-card-2">
+				
+				<a class="w3-bar-item 
+						  w3-button 
+						  w3-padding-large 
+						  w3-hide-medium 
+						  w3-hide-large 
+						  w3-right" 
+					href="javascript:void(0)" 
+					onclick="myFunction()" 
+					title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     
-    <h2 class="w3-wide">Teacher's Community</h2>
-   
-    <p class="w3-opacity"><i>For Those Who Shape Us</i></p>
+				<a href="#" 
+				   class="w3-bar-item 
+						  w3-button 
+						  w3-padding-large">HOME</a>
+    
+				<a href="#band" 
+				   class="w3-bar-item 
+						  w3-button 
+						  w3-padding-large 
+						  w3-hide-small"></a>
+    
+				<a href="#tour" 
+				   class="w3-bar-item 
+						  w3-button 
+						  w3-padding-large 
+						  w3-hide-small"></a>
+		
+				<a href="#contact" 
+				   class="w3-bar-item 
+						  w3-button 
+						  w3-padding-large 
+						  w3-hide-small">CONTACT</a>
+    
+				<div class="w3-dropdown-hover 
+					        w3-hide-small">
+      
+					<button class="w3-button 
+							       w3-padding-large" 
+							title="More" 
+							style="margin-top:0%;">MORE<i class="fa fa-caret-down"></i></button>     
+      
+					<div class="w3-dropdown-content 
+								w3-bar-block 
+								w3-card-4" 
+								style="margin-top:-0.7%;">
+						
+						<a href="#" 
+						   class="w3-bar-item 
+								  w3-button"></a>
+        
+						<a href="#" 
+						   class="w3-bar-item 
+							      w3-button"></a>
+       
+						<a href="#" 
+						   class="w3-bar-item 
+								  w3-button"></a>
+					</div>
+				</div>
+				
+				<input type="search" 
+					   name="search"
+					   id="search"
+					   placeholder="Search..">
+			</div>
+		</div>
+
+		<!-- Navbar on small screens -->
+		<div id="navDemo" 
+			 class="w3-bar-block 
+				    w3-black 
+					w3-hide 
+					w3-hide-large 
+					w3-hide-medium 
+					w3-top" 
+			 style="margin-top:46px">
+			
+			<a href="#band" 
+			   class="w3-bar-item 
+			          w3-button 
+					  w3-padding-large"></a>
   
-    <p class="w3-justify">We have created a fully free to join community particularly for teachers in order to 
+			<a href="#tour"
+			   class="w3-bar-item 
+				      w3-button 
+					  w3-padding-large"></a>
+  
+			<a href="#contact" 
+			   class="w3-bar-item 
+				      w3-button 
+					  w3-padding-large">CONTACT</a>
+  
+			<a href="#" 
+			   class="w3-bar-item 
+					  w3-button 
+					  w3-padding-large"></a>
+		</div>
+
+
+	<!-- Page content -->
+	<div class="w3-content" 
+	     style="max-width:2000px;
+				margin-top:46px">
+		
+		<!-- teacher's community -->
+		<section class="w3-container 
+					    w3-center"
+				 style="max-width:auto;
+						 background: linear-gradient(to bottom, #ff9966 0%, #ff99cc 100%);
+						color:white;">
+    
+			<h2 class="w3-wide">Teacher's Community</h2>
+   
+			<p class="w3-opacity"><i>For Those Who Shape Us</i></p>
+  
+			<p class="w3-justify">We have created a fully free to join community particularly for teachers in order to 
                           allow the exchange of ideas, suggestions, eduction-based material
                           and improvement & devlopement of education system along with 
                           the developement of teachers indvidually. 
@@ -336,17 +426,7 @@ body {font-family: "Lato", sans-serif}
   <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">SDMS</a></p>
 </footer>
 
-<script>
-	// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
+
 
 </body>
 </html>
