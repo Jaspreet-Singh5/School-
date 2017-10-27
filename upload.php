@@ -3,7 +3,12 @@
 	$target_file = $target_dir . basename($_FILES["file-upload"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
+	$output1=null;
+	$output2=null;
+	$output3=null;
+	$output4=null;
+	$output5=null;
+	
 	// Check if image file is a actual image or fake image / actual document or fake document
 	if(isset($_POST["submit"])) 
 	{
@@ -11,29 +16,33 @@
 		
 		if($check !== false) 
 		{
-			echo "File is an image or a document - " . $check["mime"] . ".";
+			$output1="File is - " . $check["mime"] . ".";
 			$uploadOk = 1;
+			return $output1;
 		} 
 		
 		else 
 		{
-			echo "File is neither an image nor a document.";
+			$output1="File is neither an image nor a document.";
 			$uploadOk = 0;
+			return $output1;
 		}
 	}
 
 	// Check if file already exists
 	if (file_exists($target_file)) 
 	{
-		echo "Sorry, file already exists.";
+		$output2="Sorry, file already exists.";
 		$uploadOk = 0;
+		return $output2;
 	}
 
 	// Check file size
 	if ($_FILES["file-upload"]["size"] > 500000) 
 	{
-		echo "Sorry, your file is too large.";
+		$output3="Sorry, your file is too large.";
 		$uploadOk = 0;
+		return $output3;
 	}
 
 	// Allow certain file formats
@@ -41,14 +50,16 @@
 	   && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != ".txt" 
 	   && $imageFileType != "docx") 
 	   {
-			echo "Sorry, only JPG, JPEG, PNG, GIF, PDF, TXT & DOCX files are allowed.";
+			$output4="Sorry, only JPG, JPEG, PNG, GIF, PDF, TXT & DOCX files are allowed.";
 			$uploadOk = 0;
+			return $output4;
 	   }
 
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0) 
 	{
-		echo "Sorry, your file was not uploaded.";
+		$output5="Sorry, your file was not uploaded.";
+		return $output5;
 	}	 
 	
 	// if everything is ok, try to upload file
@@ -56,12 +67,14 @@
 	{
 		if (move_uploaded_file($_FILES["file-upload"]["tmp_name"], $target_file)) 
 		{
-			echo "The file ". basename( $_FILES["file-upload"]["name"]). " has been uploaded.";
+			$output5="The file ". basename( $_FILES["file-upload"]["name"]). " has been uploaded.";
+			return $output5;
 		} 
 		
 		else 
 		{
-			echo "Sorry, there was an error uploading your file.";
+			$output5="Sorry, there was an error uploading your file.";
+			return $output5;
 		}
 	}
 ?>

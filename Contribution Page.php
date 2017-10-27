@@ -1,84 +1,3 @@
-<?php
-	$target_dir = "uploads/";
-	$target_file = $target_dir . basename($_FILES["file-upload"]["name"]);
-	$uploadOk = 1;
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-	$output1=null;
-	$output2=null;
-	$output3=null;
-	$output4=null;
-	$output5=null;
-	
-	// Check if image file is a actual image or fake image / actual document or fake document
-	if(isset($_POST["submit"])) 
-	{
-		$check = getimagesize($_FILES["file-upload"]["tmp_name"]);
-		
-		if($check !== false) 
-		{
-			$output1="File is - " . $check["mime"] . ".";
-			$uploadOk = 1;
-			return $output1;
-		} 
-		
-		else 
-		{
-			$output1="File is neither an image nor a document.";
-			$uploadOk = 0;
-			return $output1;
-		}
-	}
-
-	// Check if file already exists
-	if (file_exists($target_file)) 
-	{
-		$output2="Sorry, file already exists.";
-		$uploadOk = 0;
-		return $output2;
-	}
-
-	// Check file size
-	if ($_FILES["file-upload"]["size"] > 500000) 
-	{
-		$output3="Sorry, your file is too large.";
-		$uploadOk = 0;
-		return $output3;
-	}
-
-	// Allow certain file formats
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-	   && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != ".txt" 
-	   && $imageFileType != "docx") 
-	   {
-			$output4="Sorry, only JPG, JPEG, PNG, GIF, PDF, TXT & DOCX files are allowed.";
-			$uploadOk = 0;
-			return $output4;
-	   }
-
-	// Check if $uploadOk is set to 0 by an error
-	if ($uploadOk == 0) 
-	{
-		$output5="Sorry, your file was not uploaded.";
-		return $output5;
-	}	 
-	
-	// if everything is ok, try to upload file
-	else 
-	{
-		if (move_uploaded_file($_FILES["file-upload"]["tmp_name"], $target_file)) 
-		{
-			$output5="The file ". basename( $_FILES["file-upload"]["name"]). " has been uploaded.";
-			return $output5;
-		} 
-		
-		else 
-		{
-			$output5="Sorry, there was an error uploading your file.";
-			return $output5;
-		}
-	}
-?>
- 
  <!DOCTYPE html>
   <html>
 <head>
@@ -130,7 +49,7 @@
 					z-index:99;">
 			<ul>
 				
-				<li><a href="#home"">Home</a></li>
+				<li><a href="teacher-homepage.php"">Home</a></li>
 				
 				<li><a href="#news"
 				       class="active">Contribute</a></li>
@@ -206,7 +125,7 @@
 						margin-top:5%;
 						margin-bottom:5%;">
 		
-				<form  action="to-do.php" 
+				<form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" 
 					   method="post" 
 					   enctype="multipart/form-data"
 					   name="frm"
@@ -230,25 +149,93 @@
 							   name="file-upload">
 					</div>
 				
-					<input type="submit"
-					       value="Upload &raquo;"
-						   name="submit"
-						   id="upload"
-						   class="button">
-				   
-					<input type="submit"
-						   value="Change &raquo;"
-						   name="change"
-						   id="change"
-						   class="button">
 				</form>
-				
-				
 			</div>
+			
+			<div style="border-radius:5px;background-color:#f2f2f2;padding:40px;
+						margin-top:5%;
+						margin-bottom:5%;
+						text-align:left;">
+		
+				<form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" 
+					   method="post" 
+					   enctype="multipart/form-data"
+					   name="frm"
+					   class="test">
+					
+					<label for="title"
+						   id="none"
+						   style="font-family: 'helvetica neue', 'arial', sans-serif;">
+						<b>Save Changes</b>
+					</label>
+					<br>
+					
+					<input type="text"
+						   name="title"
+						   placeholder="Add files via upload with a title">
+					<br>
+					
+					<textarea style="height:150px;
+									 width:100%;"
+							  placeholder="Add an optional extended description for getting an egde..."></textarea>
+					<br>
+					
+					<input type="submit"
+						   name="submit"
+						   value="Upload"
+						   class="buttonspecial button1"
+						   style="width:150px;
+								  display:inline-block;">
+						   
+					<a href="teacher-homepage.php">
+						<input type="button"
+							   name="cancelupload"
+							   value="Cancel"
+						       class="buttonspecial button2 buttonred"
+						       style="height:52px;
+								      display:inline-block;">
+					</a>
+					
+				</form>
+			</div
+			
 		</section>
 	</div>
 	
-		<!-- Footer -->
+	
+	<button onclick="topFunction()" 
+			id="myBtn" 
+			title="Go to top"><span>&#187;</span></button>
+	
+	<script>
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() 
+		{
+			scrollFunction()
+		};
+
+		function scrollFunction() 
+		{
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) 
+			{
+				document.getElementById("myBtn").style.display = "block";
+			}
+	
+			else 
+			{
+				document.getElementById("myBtn").style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() 
+		{
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;	
+		}
+	</script>
+
+	<!-- Footer -->
 	<footer class="w3-container 
 				   w3-padding-64 
 				   w3-center 
@@ -263,8 +250,7 @@
 		<i class="fa fa-twitter w3-hover-opacity"></i>
 		<i class="fa fa-linkedin w3-hover-opacity"></i>
 		
-		<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" 
-									       target="_blank">w3css</a></p>
+		<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">SDMS</a></p>
 	</footer>
 	
 </body>
