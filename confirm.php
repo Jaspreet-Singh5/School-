@@ -1,9 +1,8 @@
   <?php
 	
-	session_start(); // Starting Session
 	$error = ''; // Variable To Store Error Message
 
-		if (isset($_POST['forgot-password'])) 
+		if (isset($_POST['conpassword'])) 
 		{
 			if (empty($_POST['frgusername']) || empty($_POST['frgemail'])) 
 			{
@@ -49,6 +48,7 @@
 	}
 		}
 ?>
+
   <html>
 <head>
 	
@@ -63,17 +63,17 @@
 	            background-color : #f2f2f2;
 				padding : 40px;
 				width : 30%;
-				height : 40%;
+				height : 70%;
 				margin-left : 35%;
 				margin-top : 10%;">
 
-		<form name = "frmForgot" 
-			  id = "frmForgot" 
+		<form name = "confrm" 
+			  id = "confrm" 
 			  method = "post" 
 			  class = "test"
 			  action="<?php echo $_SERVER['PHP_SELF']; ?>">
 
-			<h1>Forgot Password?</h1>
+			<h1>Security Questions</h1>
 	
 			<div id="validation-message">
 		
@@ -88,56 +88,64 @@
 	
 			</div>
 
-			<div class = "field-group"
-				 style = "margin-top : 2%;">
-		
-				<div>
+			<p>
+								
+				<label for = "Ques1">Ques1</label>
+				<input value = "" 
+					   name = "Ques1"
+				       type ="text"
+					   Readonly>
+							
+				<input placeholder = "Ans1" 
+					   oninput = "this.className = ''" 
+					   name = "Ans1"
+				       type ="text">
+			</p>
+						    
+			<p>
 			
-					<label for = "frgusername">Username</label>
-				</div>
+				<label for = "Ques2">Ques2</label>
+				<input value = "" 
+					   name = "Ques2"
+				       type ="text"
+					   Readonly>
+							
+				<input placeholder = "Ans2" 
+					   oninput = "this.className = ''" 
+					   name = "Ans2"
+					   type ="text">
+			</p>
+							
+			<p>
+								
+				<label for = "Ques3"
+					   style = "margin-top: 15px;">Ques3</label>
+				<input value = ""
+					   name = "Ques3"
+					   type ="text"
+					   style = "margin-top: 15px;"
+					   Readonly>
+							
+				<input placeholder = "Ans3" 
+					   oninput = "this.className = ''" 
+					   name = "Ans3"
+					   type ="text">
+			</p>
 			
-				<div>
-			
-					<input type = "text" 
-						   name = "frgusername" 
-						   id = "frgusername"> 
-			
-					<br>
-				
-					<center>OR</center>
-				</div>
-			</div>
-	
-			<div class="field-group">
-			
-				<div>
-			
-					<label for="frgemail">Email</label>
-				</div>
-		
-				<div>
-			
-					<input type="text" 
-						   name="frgemail" 
-					       id="frgemail">
-				</div>
-			</div>
-	
 			<div class="field-group">
 		
 				<div>
 			
 					<center>
 						<input type="submit" 
-						       name="forgot-password" 
-							   id="forgot-password" 
+						       name="conpassword" 
+							   id="conpassword" 
 						       value="Submit" 
 						       class="button">
 					</center>
 				</div>
-			</div>	
+			</div>
 		</form>
 	</div>
-	
 </body>
   </html>	

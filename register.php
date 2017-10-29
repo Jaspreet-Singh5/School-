@@ -8,7 +8,13 @@
 	$uname = $_POST["uname"];
 	$pword = $_POST["pword"];
 	$professn = $_POST["professn"];
-			
+	$ans1 = $_POST["Ans1"];
+	$ans2 = $_POST["Ans2"];
+	$ans3 = $_POST["Ans3"];
+	$ques1 = $_POST["Ques1"];
+	$ques2 = $_POST["Ques2"];
+	$ques3 = $_POST["Ques3"];
+	
 	$servername = "localhost";
 	$user = "root";
 	$password = "";
@@ -25,15 +31,15 @@
 	$file_to_saved = "uploads/".$file_get;
 	move_uploaded_file($temp, $file_to_saved);
 
-	echo $file_to_saved;	
-
-	$insert_img = mysql_query("INSERT INTO UserInfo (Profile Pic) values  ('".$file_to_saved."')");
+	$insert_img = mysql_query("INSERT INTO UserInfo (`Profile Pic`) 
+							   VALUES ('$file_to_saved')");
 	
 	$sql = ("INSERT INTO `TeacDev`.`UserInfo` (`First Name` , `Last Name` , `Email` , `Phone` , 
-				       `D.O.B.` , `Username` , `Password` , `Profession`)
+				       `D.O.B.` , `Username` , `Password` , `Profession` , `Question no.1` , 
+					   `Question no.2` , `Question no.3`, `Answer no.1`, `Answer no.2`, `Answer no.3`)
 							   
 		     VALUES ('$fname', '$lname', '$email', '$phone', '$dd', 
-				     '$uname', '$pword', '$professn')");
+				     '$uname', '$pword', '$professn', '$ques1', '$ques2', '$ques3', '$ans1', '$ans2', '$ans3')");
 			
 	if($conn->query($sql) === TRUE)
 	{

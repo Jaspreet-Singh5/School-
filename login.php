@@ -245,7 +245,8 @@
                       action = "register.php"
                       method = "post"
 					  id = "regform"
-                      name = "frm1">
+                      name = "frm1"
+					  enctype = "multipart/form-data">
                     
                     <div class = "container">
                         
@@ -286,7 +287,17 @@
 							</p>
 						</div>
 						
-						<div class="tab">Personal Info:
+						<div class="tab">D.O.B:
+							
+							<p>
+								<input placeholder = "dd/mm/yyyy"
+									   type = "date"
+									   oninput = "this.className = ''" 
+									   name = "dd">
+							</p>
+						</div>
+						
+						<div class = "tab">Profile Pic:
 							
 							<center>
 								
@@ -306,18 +317,66 @@
 									</label>
 								</div>
 							</center>
+						</div>
+							  
+						<div class="tab">Security Questions:
+    
+							<p>
+								
+								<label for = "Ques1">Ques1</label>
+								<select id = "secques"
+										name="Ques1">
+									
+									<option>Your first car
+									<option>Your first pet
+									<option>Your first friend
+									<option>Your first trip
+									<option>Your first movie
+								</select>
 							
-							<br>
-							<br>
+								<input placeholder = "Ans1" 
+									   oninput = "this.className = ''" 
+									   name = "Ans1"
+									   type ="text">
+							</p>
+						    
+							<p>
+								
+								<label for = "Ques2"
+									   style = "margin-top: 15px;">Ques2</label>
+								<select id = "secques"
+									    name="Ques2">
+									
+									<option>Where do you born?
+									<option>Where do you work?
+									<option>Where do you live?
+									<option>Where do you study?
+									<option>Where do you go at vacations?
+								</select>
+							
+								<input placeholder = "Ans2" 
+									   oninput = "this.className = ''" 
+									   name = "Ans2"
+									   type ="text">
+							</p>
 							
 							<p>
-								<input placeholder = "dd"
-									   type = "date"
+								
+								<label for = "Ques3"
+									   style = "margin-top: 15px;">Ques3</label>
+								<input placeholder = "Ques3" 
 									   oninput = "this.className = ''" 
-									   name = "dd">
+									   type ="text"
+									   style = "margin-top: 15px;"
+									   name="Ques3">
+							
+								<input placeholder = "Ans3" 
+									   oninput = "this.className = ''" 
+									   name = "Ans3"
+									   type ="text">
 							</p>
 						</div>
-						
+  
 						<div class="tab">Login Info:
 							
 							<p>
@@ -364,6 +423,8 @@
 						<div style="text-align:center;
 								    margin-top:40px;">
 							
+							<span class="step"></span>
+							<span class="step"></span>
 							<span class="step"></span>
 							<span class="step"></span>
 							<span class="step"></span>
