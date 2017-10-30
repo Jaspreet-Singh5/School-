@@ -5,48 +5,39 @@
 
 		if (isset($_POST['forgot-password'])) 
 		{
-			if (empty($_POST['frgusername']) || empty($_POST['frgemail'])) 
+			if (empty($_POST['frgemail'])) 
 			{
-				$error = "Username or Email is required";
+				$error = "Email is required";
 			}
 
 			else
 			{
+				// Define $email
+				$email = $_POST['frgemail'];
 				
-				if($email == "")
+				// Establishing Connection with Server by passing server_name, user_id and password as a parameter
+				$connection = mysql_connect("localhost", "root", "");
+			
+				// To protect MySQL injection for Security purpose
+				$email = stripslashes($email);	
+				$email = mysql_real_escape_string($email);
+			
+				// Selecting Database	
+				$db = mysql_select_db("TeacDev", $connection);
+			
+				// SQL query to fetch information of registerd users and finds user match.
+				$query = mysql_query("select * from UserInfo where Email = '$email'", $connection);
+			
+				$rows = mysql_num_rows($query);
+			
+				if($rows == 1) 
 				{
-					// Define $username
-					$username = $_POST['frgusername'];
-				
-					// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-					$connection = mysql_connect("localhost", "root", "");
+					$_SESSION['frg_password'] = $email; // Initializing Session
+					header("location: confirm.php"); // Redirecting To Other Page
+				} 
 			
-					// To protect MySQL injection for Security purpose
-					$username = stripslashes($username);	
-					$username = mysql_real_escape_string($username);
-			
-					// Selecting Database	
-					$db = mysql_select_db("TeacDev", $connection);
-			
-					// SQL query to fetch information of registerd users and finds user match.
-					$query = mysql_query("select * from UserInfo where Username='$username'", $connection);
-			
-					$rows = mysql_num_rows($query);
-			
-					if ($rows == 1) 
-					{
-						$_SESSION['frg_password'] = $username; // Initializing Session
-						header("location: confirm.php"); // Redirecting To Other Page
-					} 
-			
-			else 
-			{
-				$error = "Username or Password is invalid";
+				mysql_close($connection); // Closing Connection
 			}
-
-			mysql_close($connection); // Closing Connection
-		}
-	}
 		}
 ?>
   <html>
@@ -63,7 +54,7 @@
 	            background-color : #f2f2f2;
 				padding : 40px;
 				width : 30%;
-				height : 40%;
+				height : 30%;
 				margin-left : 35%;
 				margin-top : 10%;">
 
@@ -88,26 +79,6 @@
 	
 			</div>
 
-			<div class = "field-group"
-				 style = "margin-top : 2%;">
-		
-				<div>
-			
-					<label for = "frgusername">Username</label>
-				</div>
-			
-				<div>
-			
-					<input type = "text" 
-						   name = "frgusername" 
-						   id = "frgusername"> 
-			
-					<br>
-				
-					<center>OR</center>
-				</div>
-			</div>
-	
 			<div class="field-group">
 			
 				<div>

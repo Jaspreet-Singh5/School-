@@ -658,7 +658,7 @@
                                     class="cancelbtn2">Cancel
                             </button>
                         
-                            <span class="psw">Forgot <a href="#">password?</a>
+                            <span class="psw">Forgot <a href="forgot.php">password?</a>
                            </span>
 						</div>
 						

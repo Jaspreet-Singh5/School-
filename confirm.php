@@ -1,52 +1,70 @@
   <?php
 	
+	session_start();// Starting Session
+
 	$error = ''; // Variable To Store Error Message
 
-		if (isset($_POST['conpassword'])) 
+	// Establishing Connection with Server by passing server_name, user_id and password as a parameter
+	$connection = mysql_connect("localhost", "root", "");
+			
+	// Selecting Database	
+	$db = mysql_select_db("TeacDev", $connection);
+			
+	$email = $_SESSION['frg_password'];
+				
+	// SQL query to fetch information of registerd users and finds user match.
+	$query = mysql_query("select * from UserInfo where Email = '$email'", $connection);
+			
+	$rows = mysql_num_rows($query);
+				
+	$row = mysql_fetch_assoc($query);
+				
+	$ques1 = $row["Question no.1"];
+	$ques2 = $row["Question no.2"];
+	$ques3 = $row["Question no.3"];
+	$ans1chk = $row["Answer no.1"];
+	$ans2chk = $row["Answer no.2"];
+	$ans3chk = $row["Answer no.3"];
+				
+	if (isset($_POST['conpassword'])) 
+	{
+		if (empty($_POST['Ques1']) || empty($_POST['Ques2']) || empty($_POST['Ques3'])) 
 		{
-			if (empty($_POST['frgusername']) || empty($_POST['frgemail'])) 
-			{
-				$error = "Username or Email is required";
-			}
+			$error = "All fields are mandatory";
+		}
 
-			else
-			{
+		else
+		{
+			$ans1 = $_POST["Ans1"];
+			$ans2 = $_POST["Ans2"];
+			$ans3 = $_POST["Ans3"];
 				
-				if($email == "")
+			// To protect MySQL injection for Security purpose
+			$ans1 = stripslashes($ans1);	
+			$ans1 = mysql_real_escape_string($ans1);
+			$ans2 = stripslashes($ans2);	
+			$ans2 = mysql_real_escape_string($ans2);
+			$ans3 = stripslashes($ans3);	
+			$ans3 = mysql_real_escape_string($ans3);
+			
+				
+			if ($rows == 1) 
+			{
+				if(($ans1chk == $ans1) && ($ans2chk == $ans2) && ($ans3chk == $ans3))
 				{
-					// Define $username
-					$username = $_POST['frgusername'];
-				
-					// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-					$connection = mysql_connect("localhost", "root", "");
+					header("location: reset.php"); // Redirecting To Other Page
+					die();
+				}
+					
+				else
+				{
+					$error = "Sorry! your answers did not match";
+				}
+			} 
 			
-					// To protect MySQL injection for Security purpose
-					$username = stripslashes($username);	
-					$username = mysql_real_escape_string($username);
-			
-					// Selecting Database	
-					$db = mysql_select_db("TeacDev", $connection);
-			
-					// SQL query to fetch information of registerd users and finds user match.
-					$query = mysql_query("select * from UserInfo where Username='$username'", $connection);
-			
-					$rows = mysql_num_rows($query);
-			
-					if ($rows == 1) 
-					{
-						$_SESSION['frg_password'] = $username; // Initializing Session
-						header("location: confirm.php"); // Redirecting To Other Page
-					} 
-			
-			else 
-			{
-				$error = "Username or Password is invalid";
-			}
-
 			mysql_close($connection); // Closing Connection
 		}
 	}
-		}
 ?>
 
   <html>
@@ -91,7 +109,7 @@
 			<p>
 								
 				<label for = "Ques1">Ques1</label>
-				<input value = "" 
+				<input value = "<?php echo $ques1; ?>" 
 					   name = "Ques1"
 				       type ="text"
 					   Readonly>
@@ -105,7 +123,7 @@
 			<p>
 			
 				<label for = "Ques2">Ques2</label>
-				<input value = "" 
+				<input value = "<?php echo $ques2; ?>" 
 					   name = "Ques2"
 				       type ="text"
 					   Readonly>
@@ -120,7 +138,7 @@
 								
 				<label for = "Ques3"
 					   style = "margin-top: 15px;">Ques3</label>
-				<input value = ""
+				<input value = "<?php echo $ques3; ?>"
 					   name = "Ques3"
 					   type ="text"
 					   style = "margin-top: 15px;"
