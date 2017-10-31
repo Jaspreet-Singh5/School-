@@ -231,7 +231,92 @@
 			</button>
 		</center>
        
-            <div id="id01" 
+<?php     
+	// define variables and set to empty values
+	$emailErr =  "";
+	
+	$name = $email = $gender = $comment = $website = "";
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	{
+		if (empty($_POST["name"])) 
+		{
+			$nameErr = "Name is required";
+		} 
+		
+		else 
+		{
+			$name = test_input($_POST["name"]);
+			
+			// check if name only contains letters and whitespace
+			if (!preg_match("/^[a-zA-Z ]*$/",$name)) 
+			{
+				$nameErr = "Only letters and white space allowed";
+			}
+		}
+  
+		if (empty($_POST["email"])) 
+		{
+			$emailErr = "Email is required";
+		} 
+		
+		else 
+		{
+			$email = test_input($_POST["email"]);
+    
+			// check if e-mail address is well-formed
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+			{
+				$emailErr = "Invalid email format";
+			}
+		}
+    
+		if (empty($_POST["website"])) 
+		{
+			$website = "";
+		} 
+		
+		else 
+		{
+			$website = test_input($_POST["website"]);
+    
+			// check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+			if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) 
+			{
+				$websiteErr = "Invalid URL";
+			}	
+		}
+
+		if (empty($_POST["comment"])) 
+		{
+			$comment = "";
+		}
+		
+		else 
+		{
+			$comment = test_input($_POST["comment"]);
+		}
+
+		if (empty($_POST["gender"])) 
+		{
+			$genderErr = "Gender is required";
+		} 
+		
+		else 
+		{
+			$gender = test_input($_POST["gender"]);
+		}
+	}
+
+	function test_input($data) 
+	{
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+?>
+			<div id="id01" 
                  class="modal">
                 
                 <span onclick="document.getElementById('id01').style.display='none'" 
@@ -274,51 +359,13 @@
 						
 							<p><input placeholder = "E-mail..."
 									  type = "email"
+									  id = "email"
 							          oninput = "this.className = ''" 
 									  name = "email">
 							</p>
 				
-							<p>
-								<input placeholder = "Phone..." 
-									   oninput = "this.className = ''" 
-									   name = "phone"
-									   type = "text"
-									   style = "margin-top: 15px;">
-							</p>
 						</div>
 						
-						<div class="tab">D.O.B:
-							
-							<p>
-								<input placeholder = "dd/mm/yyyy"
-									   type = "date"
-									   oninput = "this.className = ''" 
-									   name = "dd">
-							</p>
-						</div>
-						
-						<div class = "tab">Profile Pic:
-							
-							<center>
-								
-								<div class = "profile-pic" 
-								     style = "background-image: url('img_avatar2.png')" >
-
-									<input id = "upload" 
-										   class = "file-upload__input" 
-										   type = "file" 
-										   name = "file-upload">
-										
-									<i style = "font-size : 14px" 
-									   class = "fa">&#xf030;</i>
-      
-									<label for = "upload">
-										<span style = "cursor : pointer;">Upload Image</span>
-									</label>
-								</div>
-							</center>
-						</div>
-							  
 						<div class="tab">Security Questions:
     
 							<p>
@@ -393,11 +440,36 @@
 									  style = "margin-top: 15px;">
 							</p>
 							
-							<p><input placeholder="Profession..." 
-							          oninput="this.className = ''" 
-									  name="professn" 
-									  type="text"
-									  style="margin-top: 15px;">
+							<p>
+								<div id = "holder">
+	
+									<div class = "button-holder"
+										 style = "padding-top : 5px;">
+									
+										<input type = "radio" 
+									     	   id = "professn" 
+											   name = "professn" 
+											   class = "regular-radio" 
+											   value = "Teacher"
+											   checked />
+										
+										<label for = "radio-1-1"
+											   style = "float : left;"></label>
+										
+										<span style = "float : left;">Teacher &nbsp; &nbsp;</span>
+									
+										<input type = "radio" 
+											   id = "professn" 
+											   name = "professn"
+											   value = "Devloper"
+											   class = "regular-radio"/>
+										
+										<label for = "radio-1-2"
+											   style = "float : left;"></label>
+									
+										<span style = "float : left;">Developer</span><br />
+									</div>
+								</div>
 							</p>
 						</div>
 						
@@ -423,8 +495,6 @@
 						<div style="text-align:center;
 								    margin-top:40px;">
 							
-							<span class="step"></span>
-							<span class="step"></span>
 							<span class="step"></span>
 							<span class="step"></span>
 							<span class="step"></span>
@@ -522,6 +592,7 @@
 							// and set the current valid status to false
 							valid = false;
 						}
+						
 					}
   
 					// If the valid status is true, mark the step as finished and valid:
@@ -532,6 +603,7 @@
 						
 					return valid; // return the valid status
 				}
+					
 					
 				function fixStepIndicator(n) 
 				{
@@ -627,7 +699,8 @@
 											   id = "radio-1-1" 
 										       name = "radio-1-set" 
 										       class = "regular-radio" 
-										       checked />
+										       value = "Teacher"
+											   checked />
 										
 										<label for = "radio-1-1"
 											   style = "float : left;"></label>
@@ -637,6 +710,7 @@
 										<input type = "radio" 
 											   id = "radio-1-2" 
 										       name = "radio-1-set"
+											   value = "Devloper"
 										       class = "regular-radio"/>
 										
 										<label for = "radio-1-2"
@@ -646,8 +720,6 @@
 									</div>
 								</div>
 							</div>
-
-                            
 						</div>
 						
 						<div class="container" 

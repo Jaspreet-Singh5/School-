@@ -1,0 +1,14 @@
+// In function validateform below sign up form
+if(currentTab == 1)
+						{
+							var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+							
+							if(document.frm1.email.value.!match(mailformat))
+							{
+								// add an "invalid" class to the field:
+								y[i].className += " invalid";
+								
+								// and set the current valid status to false
+								valid = false;
+							}
+						}
